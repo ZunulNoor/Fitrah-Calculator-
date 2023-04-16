@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta chartset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content ="IE=edge">
+<meta name="viewport" content="width=device=width, initial-scale=1.0">
+<title>Fitrah Calculator</title>
+</head>
+ <script>
+    function calculateFitrah() {
+      var familyMembers = document.getElementById("familyMembers").value;
+      var fitrahMethod = document.getElementById("fitrahMethod").value;
+      var fitrahPrice = 0;
+      var fm;
+      var fn;
+      if (fitrahMethod == "2") {
+        fitrahPrice = 2;
+        fm = "Grain";
+        fn = "KG";
+      } else if (fitrahMethod == "320") {
+        fitrahPrice = 320;
+        fm = "Cash";
+        fn = "PKR"
+      }
+      
+      var fitrahAmount = familyMembers * fitrahPrice;
+      
+      document.getElementById("result").innerHTML = "The fitrah amount for " + familyMembers + " family members using the " + fm + " method is " + fitrahAmount.toFixed(2) + " " + fn + "." ;
+    }
+  </script>
+<body>
+  <center><h1>Fitrah Calculator</h1>
+   </center>
+  
+  <p>Please enter the total number of family members:</p><hr>
+  <input type="number" id="familyMembers">
+  
+  <p>Please select a fitrah method:</p>
+  <select id="fitrahMethod">
+    <option value="2">Grain (2 kg per person)</option>
+    <option value="320">Cash (320 PKR per person)</option>
+  </select>
+  
+  <hr>
+  
+  <button onclick="calculateFitrah()">Calculate Fitrah</button>
+  
+  <br><br>
+  
+  <p id="result"></p>
+  
+</body>
+</html>
